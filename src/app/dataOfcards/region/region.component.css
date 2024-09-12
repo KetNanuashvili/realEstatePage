@@ -1,0 +1,51 @@
+.region-form{
+    width: 731px;
+    height: 284px;
+    padding: 24px;
+    gap: 32px;
+    border-radius: 10px ;
+    opacity: 10px;
+    border: 1px solid #DBDBDB;
+   margin-left: 163px;
+   margin-top: 10px;
+}
+h1{
+    font-family: FiraGO;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.2px;
+text-align: left;
+margin-bottom: 20px;
+
+}
+.font-style{
+    font-family: FiraGO;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+ 
+    
+}
+
+:host ::ng-deep .form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+   
+  }
+
+  .region-grid{
+    display: grid;
+    grid-template-columns:  auto auto auto;
+    gap: -5px;
+    height: 128px;
+    width: 678px;
+  }
+ 
+  :host ::ng-deep .btn-primary {
+    margin-top: 35px;
+    margin-left: 595px;
+   background-color: #F93B1D;
+   border:none;
+   border-radius: 8px;
+  }

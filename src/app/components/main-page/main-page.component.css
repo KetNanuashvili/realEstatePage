@@ -1,0 +1,75 @@
+
+.header-style{
+    width: 1,920px;
+height: 100px;
+padding: 38px 162px 38px 162px;
+gap: 10px;
+border: 1px solid #DBDBDB;;
+
+}
+.bottom-div{
+    display: flex;
+    justify-content: center;
+}
+.bottom-header{
+    width: 1596px;
+    margin-top: 77px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-main-looking{
+   
+    width: 785px;
+    padding: 6px;
+border-radius: 10px;
+opacity: 0px;
+border: 1px solid #DBDBDB;
+display: flex;
+justify-content: space-around;
+
+}
+.button-texts{
+    font-family: FiraGO;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
+    text-align: center;
+    color: #021526;
+    ;
+}
+.listing-styles{
+    background-color:#F93B1D;
+    width:230px;
+padding: 10px 16px 10px 16px;
+gap: 2px;
+border-radius: 10px;
+
+
+}
+.text-color-list{
+    color: #FFFFFF;
+
+}
+.text-color-agent{
+    color: #F93B1D;
+
+}
+.agent-styles{
+    margin-left: 16px;
+    background-color: #FFFFFF;
+     border: 1px solid #F93B1D;
+}
+.region-style{
+gap: 4px;
+border-radius: 43px;
+border: 1px 0px 0px 0px;
+border: 1px solid #DBDBDB;
+font-family: FiraGO;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.8px;
+text-align: center;
+height: 32px;
+
+}

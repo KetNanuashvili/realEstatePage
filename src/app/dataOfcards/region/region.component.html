@@ -1,0 +1,14 @@
+<form class="region-form">
+  <div>
+    <h1>რეგიონების მიხედვით</h1>
+    <div class="region-grid">
+      <div class="mb-3 form-check" *ngFor="let name of data">
+        <input type="checkbox" class="form-check-input " id="exampleCheck1">
+        <label class="form-check-label font-style" for="exampleCheck1">      {{ name }}</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">არჩევა</button>
+  </div>
+  
+  </form>

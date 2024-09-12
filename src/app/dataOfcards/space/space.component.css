@@ -1,0 +1,67 @@
+.region-form{
+    width: 382px;
+    height: 372px;
+top: 234px;
+padding: 24px 0px 0px 0px;
+gap: 32px;
+border-radius: 10px;
+opacity: 10px;
+border: 1px solid #DBDBDB;
+display: flex;
+justify-content: center;
+margin-top:-38px;
+margin-left: 550px;
+}
+.region-flex{
+    width: 325px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host ::ng-deep .form-control{
+    width:155px;
+    height: 42px;
+    padding: 10px ;
+    border-radius: 6px ;
+    border: 1px solid #808A93;
+   
+  }
+  h1{
+font-size: 16px;
+font-weight: 600;
+line-height: 19.2px;
+text-align: left;
+margin-bottom: 20px;
+color: #021526;
+
+
+  }
+  h4{
+    font-family: FiraGO;
+font-size: 14px;
+font-weight: 600;
+line-height: 16.8px;
+text-align: left;
+color: #021526;
+margin-top: 20px;
+margin-bottom: 15px;
+  }
+  span{
+    font-family: FiraGO;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.8px;
+text-align: left;
+color: #2D3648;
+
+  }
+
+:host ::ng-deep .btn-primary{
+  width: 77px;
+  border-radius: 8px;
+  background-color: #F93B1D;
+  border: none;
+  margin-left: 246px;
+    margin-top: 40px;
+  }

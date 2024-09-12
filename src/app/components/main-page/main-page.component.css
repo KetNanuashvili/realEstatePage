@@ -1,6 +1,6 @@
 
 .header-style{
-    width: 1,920px;
+width: 1,920px;
 height: 100px;
 padding: 38px 162px 38px 162px;
 gap: 10px;
@@ -32,11 +32,11 @@ justify-content: space-around;
 .button-texts{
     font-family: FiraGO;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 19.2px;
     text-align: center;
     color: #021526;
-    ;
+
 }
 .listing-styles{
     background-color:#F93B1D;
@@ -71,5 +71,19 @@ font-weight: 400;
 line-height: 16.8px;
 text-align: center;
 height: 32px;
+
+}
+.chosen{
+font-size: 14px;
+font-weight: 400;
+line-height: 16.8px;
+text-align: center;
+
+}
+.chosen2{
+    font-size: 14px;
+    font-weight: 600;
+line-height: 16.8px;
+text-align: center;
 
 }

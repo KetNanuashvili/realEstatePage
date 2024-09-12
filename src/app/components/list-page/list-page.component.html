@@ -1,0 +1,126 @@
+<header class="header-style">
+  <img src="assets/headerimage/LOGO-02 3.png" alt="">
+</header>
+<form >
+    <div class="main-div">
+        <div class="form-div">
+            <h1>ლისტინგის დამატება</h1>
+
+            <!-- გარიგების ტიპი -->
+            <div>
+                <h5>გარიგების ტიპი</h5>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">იყიდება</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">ქირავდება</label>
+                  </div>
+            </div>
+
+            <!-- მდებარეობა -->
+            <div>
+              <h5 class="destination-style">მდებარეობა</h5>
+              <div class="detinationForm">
+                <div >
+                  <label for="exampleInputEmail1" class="form-label">მისამართი *</label>
+                  <input type="text" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text"> მინიმუმ ორი სიმბოლო</div>
+                </div>
+                <div  >
+                  <label for="exampleInputEmail1" class="form-label">საფოსტო ინდექსი *</label>
+                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები</div>
+                </div>
+              <div >
+                <select class="form-select destination-input" aria-label="Default select example">
+                  <option selected>რეგიონი</option>
+                  <option value="1">კახეთი</option>
+                  <option value="2">Two</option>
+                </select>
+              </div>
+              <div>
+                <select class="form-select destination-input" aria-label="Default select example">
+                  <option selected>ქალაქი</option>
+                  <option value="1">თელავი</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+          </div>
+        
+        </div>   
+
+            <!-- ბინის დეტალები -->
+            <div>
+              <h5 class="destination-style">ბინის დეტალები</h5>
+              <div class="detinationForm">
+                <div >
+                  <label for="exampleInputEmail1" class="form-label">ფასი</label>
+                  <input type="text" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
+                </div>
+                <div  >
+                  <label for="exampleInputEmail1" class="form-label">საძინებლების რაოდენობა*</label>
+                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
+                </div>
+                <div >
+                  <label for="exampleInputEmail1" class="form-label">ფართობი</label>
+                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
+                </div>
+              </div>
+
+              <!-- textarea -->
+               <div style="margin-top: 30px">
+                <label for="">აღწერა *</label>
+                  <textarea class="form-control"   id="floatingTextarea2" ></textarea>
+              
+               </div>
+
+               <!-- picture -->
+
+               <div class="container mt-5">
+              
+                  <label for="imageUpload" class="form-label">ატვირთეთ ფოტო *</label>
+                  <div class="upload-box">
+                    <input type="file" id="imageUpload" accept="image/*">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                  </div>
+                  <p id="fileName" class="mt-3"></p>
+           
+              </div>
+          
+              <!-- agent -->
+
+              <div style="margin-top:60px">
+                <h5 style="margin-bottom:20px">აგენტი</h5>
+                <div>
+                  
+                  <select class="form-select destination-input" aria-label="Default select example">
+                    <option selected>აირჩიე</option>
+                    <option value="1">გიორგი ბრეგვაძე</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>  
+            <div style=" display: flex; justify-content: right;" >       
+              <div style="margin-top:100px; padding-bottom: 60px; ">
+              <button type="button" class="btn btn-primary declare-button">გაუქმება</button>
+              <button type="button"  class="btn btn-secondary add-button">დაამატე ლისტინგი</button>
+            </div>
+
+            </div>
+     
+        </div>
+   
+    </div>
+   
+</form>

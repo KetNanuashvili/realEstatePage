@@ -10,44 +10,27 @@
                 <div class="btn-group">
                     <button class="btn  dropdown-toggle button-texts"  [ngStyle]="{'background-color': backgroundColor}"   type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" (click)="selectRegionFunc()"  >
                         რეგიონი    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    </ul>
+                
                   </div>
                   
                   <div class="btn-group">
-                    <button class="btn  dropdown-toggle button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+                    <button class="btn  dropdown-toggle button-texts" [ngStyle]="{'background-color': priceBackground}"   type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false" (click)="drodownPriceFunc()">
                       საფასო კატეგორია
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    </ul>
                   </div>
                   
                   <div class="btn-group">
-                    <button class="btn  dropdown-toggle button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                    <button class="btn  dropdown-toggle button-texts" [ngStyle]="{'background-color': spaceBackground}" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" (click)="selectSpaceFunc()">
                       ფართობი
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    </ul>
+             
                   </div>
                   
                   <div class="btn-group">
-                    <button class="btn  dropdown-toggle button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                    <button class="btn  dropdown-toggle button-texts" [ngStyle]="{'background-color': roomBackground}"  (click)="selectRoomFunc()" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
                       საძინებლის რაოდენობა
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                      <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    </ul>
+             
                   </div>
             </div>
         
@@ -82,32 +65,32 @@
     <div style="width:1596px;">
         <div  style="margin-top: 16px; width: 600px; display: flex; justify-content: space-between;">
             <div class="btn-group region-style" >
-                <button class="btn   button-texts" type="button"  data-bs-auto-close="true" aria-expanded="false">
+                <button class="btn   button-texts chosen" type="button"  data-bs-auto-close="true" aria-expanded="false">
                     თბილისი   <span aria-hidden="true">&times;</span> </button>
              
               </div>
               
               <div class="btn-group region-style">
-                <button class="btn   button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+                <button class="btn   button-texts chosen" type="button" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
                   55 მ2- 90მ2  <span aria-hidden="true">&times;</span>
                 </button>
            
               </div>
               
               <div class="btn-group region-style">
-                <button class="btn   button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <button class="btn   button-texts chosen" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                  20000ლ - 100000ლ  <span aria-hidden="true">&times;</span>
                 </button>
           
               </div>
               
               <div class="btn-group region-style">
-                <button class="btn   button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                <button class="btn   button-texts chosen" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
                   1  <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="btn-group ">
-                <button class="btn   button-texts" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                <button class="btn   button-texts chosen2" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
                 გასუფთავება
                 </button>
               </div>
@@ -116,3 +99,7 @@
 </div>
 
 <app-region *ngIf="selectRegion" ></app-region>
+<app-price *ngIf="selectPrice"></app-price>
+<app-space *ngIf="selectSpace"></app-space>
+<app-room-number *ngIf="selectRoom"></app-room-number>
+

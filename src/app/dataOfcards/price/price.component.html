@@ -1,0 +1,26 @@
+<form class="region-form">
+    <div>
+      <h1>ფასის მიხედვით</h1>
+      <div class="region-flex">
+        <div >
+            <input type="text" class="form-control " id="inlineFormInputName2" placeholder="დან ₾">
+            <h4>მინ.ფასი</h4>
+            <div *ngFor="let item of prices">
+                <span>{{item.number}}</span>
+            </div>
+      
+        </div>
+        <div >
+            <input type="text" class="form-control " id="inlineFormInputName2" placeholder="დან ₾">
+            <h4>მინ.ფასი</h4>
+            <div *ngFor="let item of prices">
+                <span>{{item.number}}</span>
+            </div>
+      
+        </div>
+       
+      </div>
+      <button type="submit" class="btn btn-primary ">არჩევა</button>
+    </div>
+  
+    </form>

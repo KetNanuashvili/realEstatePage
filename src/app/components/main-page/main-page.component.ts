@@ -9,6 +9,15 @@ export class MainPageComponent {
   selectRegion: boolean = false;
   backgroundColor: string = 'white';
 
+  selectPrice: boolean= false;
+  priceBackground: string = 'white'
+
+  selectSpace: boolean = false;
+  spaceBackground: string = 'white'
+
+  selectRoom: boolean= false;
+  roomBackground: string= 'white'
+
   constructor(){
 
   }
@@ -20,4 +29,18 @@ export class MainPageComponent {
 
   }
 
+  drodownPriceFunc(){
+    this.selectPrice= !this.selectPrice;
+    this.priceBackground = this.selectPrice ? '#e9ecef' : 'white';
+  }
+
+  selectSpaceFunc(){
+    this.selectSpace= !this.selectSpace;
+    this.spaceBackground = this.selectSpace ? '#e9ecef' : 'white';
+  }
+
+  selectRoomFunc(){
+    this.selectRoom= !this.selectRoom;
+    this.roomBackground = this.selectRoom ? '#e9ecef' : 'white';
+  }
 }

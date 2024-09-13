@@ -12,6 +12,10 @@ import { SpaceComponent } from './dataOfcards/space/space.component';
 import { RoomNumberComponent } from './dataOfcards/room-number/room-number.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { RealEstateComponent } from './components/real-estate/real-estate.component';
+import { RealEstatesService } from './services/real-estates.service';
+import { SityService } from './services/sity.service';
 
 
 @NgModule({
@@ -23,6 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SpaceComponent,
     RoomNumberComponent,
     ListPageComponent,
+    HeaderComponent,
+    RealEstateComponent
 
     
   ],
@@ -30,9 +36,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [RegionServiceService],
+  providers: [RegionServiceService, RealEstatesService,SityService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

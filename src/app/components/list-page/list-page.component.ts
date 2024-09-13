@@ -57,7 +57,6 @@ selectedOption: string | null = null;
 
 selectOption(option: string) {
   this.selectedOption = option;
-  // Add your logic to handle the option selection, such as opening a modal or adding information
   console.log('Selected option:', option);
 }
 }

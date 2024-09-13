@@ -1,6 +1,4 @@
-<header class="header-style">
-  <img src="assets/headerimage/LOGO-02 3.png" alt="">
-</header>
+
 <form [formGroup]="listForm" (ngSubmit)="onSubmit()" >
     <div class="main-div">
         <div class="form-div">
@@ -322,7 +320,7 @@
             </div>  
             <div style=" display: flex; justify-content: right;" >       
               <div style="margin-top:100px; padding-bottom: 60px; ">
-              <button type="button" class="btn btn-primary declare-button">გაუქმება</button>
+              <button type="button" class="btn btn-primary declare-button" routerLink="/home">გაუქმება</button>
               <button type="button"  class="btn btn-secondary add-button"  >დაამატე ლისტინგი</button>
             </div>
 

@@ -1,0 +1,79 @@
+
+.grid-component{
+    width: 1596px;
+     display: grid; 
+     grid-template-columns: auto auto auto auto;
+       gap:20px 10px;
+}
+.main-component{
+    width:100% ; 
+    display: flex; 
+    justify-content: 
+    center; 
+    margin-top: 60px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+:host ::ng-deep .card{
+    width: 384px;
+height: 455px;
+
+border-radius: 14px ;
+}
+
+:host ::ng-deep .card-img-to{
+
+    width: 384px;
+height: 307px;
+gap: 0px;
+border-radius: 14px 14px 0px 0px;
+opacity: 0px;
+
+
+
+}
+:host ::ng-deep .card-body{
+    width:384px;
+height: 148px;
+padding: 22px 25px 22px 25px;
+gap: 20px;
+border-radius: 0px 0px 14px 14px;
+border: 0px 1px 1px 1px;
+opacity: 0px;
+
+}
+:host :ng-deep .card-title{
+    font-family: FiraGO;
+font-size: 28px;
+font-weight: 800;
+line-height: 33.6px;
+text-align: left;
+color: #021526;
+
+}
+.iconStyles{
+  
+    color: #021526B2;
+    font-family: FiraGO;
+font-size: 16px;
+font-weight: 400;
+line-height: 19.2px;
+text-align: left;
+
+
+}
+.texts{
+    font-family: FiraGO;
+font-size: 16px;
+font-weight: 400;
+line-height: 19.2px;
+text-align: left;
+width: 208px;
+height: 19px;
+gap: 0px;
+opacity: 0px;
+color: #021526B2;
+text-align: center;
+margin-left: 8px;
+
+}

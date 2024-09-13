@@ -11,6 +11,8 @@ import { PriceComponent } from './dataOfcards/price/price.component';
 import { SpaceComponent } from './dataOfcards/space/space.component';
 import { RoomNumberComponent } from './dataOfcards/room-number/room-number.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { ListPageComponent } from './components/list-page/list-page.component';
     PriceComponent,
     SpaceComponent,
     RoomNumberComponent,
-    ListPageComponent
+    ListPageComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule  
+    HttpClientModule ,
+    ReactiveFormsModule
   ],
   providers: [RegionServiceService],
   bootstrap: [AppComponent]

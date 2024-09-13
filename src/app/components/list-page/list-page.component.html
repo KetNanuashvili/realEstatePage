@@ -1,7 +1,7 @@
 <header class="header-style">
   <img src="assets/headerimage/LOGO-02 3.png" alt="">
 </header>
-<form >
+<form [formGroup]="listForm" (ngSubmit)="onSubmit()" >
     <div class="main-div">
         <div class="form-div">
             <h1>ლისტინგის დამატება</h1>
@@ -10,11 +10,13 @@
             <div>
                 <h5>გარიგების ტიპი</h5>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <input class="form-check-input" formControlName="sell" type="radio" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">იყიდება</label>
                   </div>
+                        <!-- error -->
+                  
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <input class="form-check-input" formControlName="rent" type="radio" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">ქირავდება</label>
                   </div>
             </div>
@@ -24,29 +26,123 @@
               <h5 class="destination-style">მდებარეობა</h5>
               <div class="detinationForm">
                 <div >
-                  <label for="exampleInputEmail1" class="form-label">მისამართი *</label>
-                  <input type="text" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text"> მინიმუმ ორი სიმბოლო</div>
+                  <div>
+                    <label for="exampleInputEmail1" class="form-label">მისამართი *</label>
+                    <input  type="text"   [ngClass]="{
+                      'border-danger': listForm.get('Address')?.invalid && listForm.get('Address')?.touched,
+                      'border-success': listForm.get('Address')?.valid && listForm.get('Address')?.touched
+                    }" 
+                    class="form-control destination-input" formControlName="Address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                  <!-- თავდაპირველი -->
+                    <div *ngIf="!listForm.get('Address')?.touched && !listForm.get('Address')?.dirty" id="emailHelp" class="form-text">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                      </svg> მინიმუმ ორი სიმბოლო
+                    </div>
+                  
+                    <!-- ერორის შემთხვევაში -->
+                    <div *ngIf="listForm.get('Address')?.invalid && listForm.get('Address')?.touched">
+                      <small style="color: red" *ngIf="listForm.get('Address')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                      </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+                    </div>
+                  
+                    <!-- წარმატების შემთხვევაში -->
+                    <div *ngIf="listForm.get('Address')?.valid">
+                      <small style="color: green">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                          <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                        </svg> მინიმუმ ორი სიმბოლო
+                      </small>
+                    </div>
+                  </div>
+                  
+                  
                 </div>
                 <div  >
                   <label for="exampleInputEmail1" class="form-label">საფოსტო ინდექსი *</label>
-                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები</div>
+
+                  <input  type="email"   [ngClass]="{
+                    'border-danger': listForm.get('emailIndex')?.invalid && listForm.get('emailIndex')?.touched,
+                    'border-success': listForm.get('emailIndex')?.valid && listForm.get('emailIndex')?.touched
+                  }" 
+                  class="form-control destination-input" formControlName="emailIndex" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                <!-- თავდაპირველი -->
+                  <div *ngIf="!listForm.get('emailIndex')?.touched && !listForm.get('emailIndex')?.dirty" id="emailHelp" class="form-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> მხოლოდ რიცხვები
+                  </div>
+                
+                  <!-- ერორის შემთხვევაში -->
+                  <div *ngIf="listForm.get('emailIndex')?.invalid && listForm.get('emailIndex')?.touched">
+                    <small style="color: red" *ngIf="listForm.get('emailIndex')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+                  </div>
+                
+                  <!-- წარმატების შემთხვევაში -->
+                  <div *ngIf="listForm.get('emailIndex')?.valid">
+                    <small style="color: green">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                      </svg> მხოლოდ რიცხვები
+                    </small>
+                  </div>
+
                 </div>
               <div >
-                <select class="form-select destination-input" aria-label="Default select example">
-                  <option selected>რეგიონი</option>
-                  <option value="1">კახეთი</option>
-                  <option value="2">Two</option>
+                <label  class="form-label">რეგიონი *</label>
+                <select class="form-select destination-input"  [ngClass]="{
+                  'border-danger': listForm.get('region')?.invalid && listForm.get('region')?.touched,
+                  'border-success': listForm.get('region')?.valid && listForm.get('region')?.touched
+                }"   formControlName="region"   aria-label="Default select example">
+                  <option *ngFor="let region of data" >{{region}}</option>
+              
                 </select>
+                 <!-- ერორის შემთხვევაში -->
+                 <div *ngIf="listForm.get('region')?.invalid && listForm.get('region')?.touched">
+                  <small style="color: red" *ngIf="listForm.get('region')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> რეგიონის მითითება სავალდებულოა</small>
+                </div>
+              
+                <!-- წარმატების შემთხვევაში -->
+                <div *ngIf="listForm.get('region')?.valid">
+                  <small style="color: green">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> რეგიონი არჩეულია
+                  </small>
+                </div>
               </div>
               <div>
-                <select class="form-select destination-input" aria-label="Default select example">
-                  <option selected>ქალაქი</option>
-                  <option value="1">თელავი</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <label  class="form-label">ქალაქი *</label>
+                <select [ngClass]="{
+                  'border-danger': listForm.get('city')?.invalid && listForm.get('city')?.touched,
+                  'border-success': listForm.get('city')?.valid && listForm.get('city')?.touched
+                }" class="form-select destination-input" formControlName="city" aria-label="Default select example">
+                  <option *ngFor="let sity of data2">{{sity}}</option>
+               
                 </select>
+
+                 <!-- ერორის შემთხვევაში -->
+                 <div *ngIf="listForm.get('city')?.invalid && listForm.get('city')?.touched">
+                  <small style="color: red" *ngIf="listForm.get('city')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> ქალაქის მითითება სავალდებულოა</small>
+                </div>
+              
+                <!-- წარმატების შემთხვევაში -->
+                <div *ngIf="listForm.get('city')?.valid">
+                  <small style="color: green">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> ქალაქი არჩეულია
+                  </small>
+                </div>
               </div>
           </div>
         
@@ -57,36 +153,135 @@
               <h5 class="destination-style">ბინის დეტალები</h5>
               <div class="detinationForm">
                 <div >
-                  <label for="exampleInputEmail1" class="form-label">ფასი</label>
-                  <input type="text" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
+                  <label for="exampleInputEmail1" class="form-label">ფასი *</label>
+                  <input  type="number"   [ngClass]="{
+                    'border-danger': listForm.get('price')?.invalid && listForm.get('price')?.touched,
+                    'border-success': listForm.get('price')?.valid && listForm.get('price')?.touched
+                  }" 
+                  class="form-control destination-input" formControlName="price" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                <!-- თავდაპირველი -->
+                  <div *ngIf="!listForm.get('price')?.touched && !listForm.get('price')?.dirty" id="emailHelp" class="form-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> მხოლოდ რიცხვები
+                  </div>
+                
+                  <!-- ერორის შემთხვევაში -->
+                  <div *ngIf="listForm.get('price')?.invalid && listForm.get('price')?.touched">
+                    <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+                  </div>
+                
+                  <!-- წარმატების შემთხვევაში -->
+                  <div *ngIf="listForm.get('price')?.valid">
+                    <small style="color: green">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                      </svg> მხოლოდ რიცხვები 
+                    </small>
+                  </div>
                 </div>
+
                 <div  >
                   <label for="exampleInputEmail1" class="form-label">საძინებლების რაოდენობა*</label>
-                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
-                </div>
+                  <input  [ngClass]="{
+                    'border-danger': listForm.get('countOfRoom')?.invalid && listForm.get('countOfRoom')?.touched,
+                    'border-success': listForm.get('countOfRoom')?.valid && listForm.get('countOfRoom')?.touched
+                  }"  type="number" class="form-control destination-input" formControlName="countOfRoom" id="exampleInputEmail1" aria-describedby="emailHelp">
+               <!-- თავდაპირველი -->
+               <div *ngIf="!listForm.get('countOfRoom')?.touched && !listForm.get('countOfRoom')?.dirty" id="emailHelp" class="form-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                </svg> მხოლოდ რიცხვები
+              </div>
+            
+              <!-- ერორის შემთხვევაში -->
+              <div *ngIf="listForm.get('countOfRoom')?.invalid && listForm.get('countOfRoom')?.touched">
+                <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+              </div>
+            
+              <!-- წარმატების შემთხვევაში -->
+              <div *ngIf="listForm.get('countOfRoom')?.valid">
+                <small style="color: green">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> მხოლოდ რიცხვები 
+                </small>
+              </div>
+            </div>
+
+
+
                 <div >
-                  <label for="exampleInputEmail1" class="form-label">ფართობი</label>
-                  <input type="email" class="form-control destination-input" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">მხოლოდ რიცხვები *</div>
+                  <label for="area" class="form-label">ფართობი</label>
+                  <input [ngClass]="{
+                    'border-danger': listForm.get('area')?.invalid && listForm.get('area')?.touched,
+                    'border-success': listForm.get('area')?.valid && listForm.get('area')?.touched
+                  }" type="number" class="form-control destination-input" formControlName="area" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <!-- თავდაპირველი -->
+                <div *ngIf="!listForm.get('area')?.touched && !listForm.get('area')?.dirty" id="emailHelp" class="form-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> მხოლოდ რიცხვები
+                </div>
+              
+                <!-- ერორის შემთხვევაში -->
+                <div *ngIf="listForm.get('area')?.invalid && listForm.get('area')?.touched">
+                  <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+                </div>
+              
+                <!-- წარმატების შემთხვევაში -->
+                <div *ngIf="listForm.get('area')?.valid">
+                  <small style="color: green">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> მხოლოდ რიცხვები 
+                  </small>
                 </div>
               </div>
-
+              </div>
               <!-- textarea -->
                <div style="margin-top: 30px">
                 <label for="">აღწერა *</label>
-                  <textarea class="form-control"   id="floatingTextarea2" ></textarea>
+                  <textarea [ngClass]="{
+                    'border-danger': listForm.get('description')?.invalid && listForm.get('description')?.touched,
+                    'border-success': listForm.get('description')?.valid && listForm.get('description')?.touched
+                  }" class="form-control" formControlName="description"   id="floatingTextarea2" ></textarea>
+                   <!-- თავდაპირველი -->
+                <div *ngIf="!listForm.get('description')?.touched && !listForm.get('description')?.dirty" id="emailHelp" class="form-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> მინიმუმ ხუთი სიტყვა
+                </div>
               
+                <!-- ერორის შემთხვევაში -->
+                <div *ngIf="listForm.get('description')?.invalid && listForm.get('description')?.touched">
+                  <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                  </svg> ჩაწერეთ ვალიდური მონაცემები</small>
+                </div>
+              
+                <!-- წარმატების შემთხვევაში -->
+                <div *ngIf="listForm.get('description')?.valid">
+                  <small style="color: green">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                    </svg> მინიმუმ ხუთი სიტყვა
+                  </small>
+                </div>
                </div>
-
                <!-- picture -->
 
                <div class="container mt-5">
-              
                   <label for="imageUpload" class="form-label">ატვირთეთ ფოტო *</label>
                   <div class="upload-box">
-                    <input type="file" id="imageUpload" accept="image/*">
+                    <input type="file" formControlName="imageFile"  id="imageUpload" accept="image/*">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                       <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
@@ -99,22 +294,36 @@
               <!-- agent -->
 
               <div style="margin-top:60px">
-                <h5 style="margin-bottom:20px">აგენტი</h5>
+                <h5 style="margin-bottom:20px">აგენტი *</h5>
                 <div>
                   
-                  <select class="form-select destination-input" aria-label="Default select example">
-                    <option selected>აირჩიე</option>
-                    <option value="1">გიორგი ბრეგვაძე</option>
+                  <select  [ngClass]="{
+                    'border-danger': listForm.get('agent')?.invalid && listForm.get('agent')?.touched,
+                    'border-success': listForm.get('agent')?.valid && listForm.get('agent')?.touched
+                  }" class="form-select destination-input" formControlName="agent"  aria-label="Default select example">
+                    <option value="1">  დაამატე აგენტი</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
+              
+                <!-- ერორის შემთხვევაში -->
+                <div *ngIf="listForm.get('agent')?.invalid && listForm.get('agent')?.touched">
+                  <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> </small>
+                </div>
+              
+                <!-- წარმატების შემთხვევაში -->
+                <div *ngIf="listForm.get('agent')?.valid">
+                  <small style="color: green">
+                    
+                  </small>
+                </div>
                 </div>
               </div>
             </div>  
             <div style=" display: flex; justify-content: right;" >       
               <div style="margin-top:100px; padding-bottom: 60px; ">
               <button type="button" class="btn btn-primary declare-button">გაუქმება</button>
-              <button type="button"  class="btn btn-secondary add-button">დაამატე ლისტინგი</button>
+              <button type="button"  class="btn btn-secondary add-button"  >დაამატე ლისტინგი</button>
             </div>
 
             </div>

@@ -21,7 +21,7 @@ export class FormGroupService {
       countOfRoom: ['', Validators.required],
       area: ['', Validators.required],
       description: ['', Validators.required],
-      imageFile: ['', Validators.required],
+      imageFile: ['', ],
       agent: ['', Validators.required],
     });
   }

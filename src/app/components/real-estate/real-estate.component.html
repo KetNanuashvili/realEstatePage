@@ -1,6 +1,6 @@
 <div class="main-component">
     <div class="grid-component">
-        <div class="card"  *ngFor="let items of data">
+        <div class="card"  *ngFor="let items of data" routerLink="/AgentPage">
             <img src={{items.image}} class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{items.price}}</h5>

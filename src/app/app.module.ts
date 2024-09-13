@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RealEstateComponent } from './components/real-estate/real-estate.component';
 import { RealEstatesService } from './services/real-estates.service';
 import { SityService } from './services/sity.service';
+import { AgentPageComponent } from './components/agent-page/agent-page.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SityService } from './services/sity.service';
     RoomNumberComponent,
     ListPageComponent,
     HeaderComponent,
-    RealEstateComponent
+    RealEstateComponent,
+    AgentPageComponent
 
     
   ],

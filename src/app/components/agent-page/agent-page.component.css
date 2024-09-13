@@ -1,0 +1,145 @@
+.card2{
+    width: 1591px;
+    height: 714px;
+    margin-top: 70px;
+}
+.arrow{
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
+.card3{
+    width: 1591px;
+    display: flex;
+    justify-content: space-between;
+  
+}
+.bi-arrow-left-short{
+    width: 25px;
+    height: 25px;
+    top: 26.67px;
+    left: 26.67px;
+    color: #021526;
+
+}
+.img-style{
+    width: 839px;
+height:670px;
+gap: 10px;
+opacity: 0px;
+border: 14px, 14px, 0px, 0px;
+
+}
+.card-bodys{
+    width:503px;
+    height:714px;
+    padding: 30px 0px 0px 0px;
+    gap: 40px;
+    opacity: 0px;
+
+    
+}
+.card-titles{
+    font-family: FiraGO;
+font-size: 48px;
+font-weight: 700;
+line-height: 57.6px;
+text-align: left;
+
+}
+
+.iconStyles{
+  
+    color: #021526B2;
+    font-family: FiraGO;
+font-size: 16px;
+font-weight: 400;
+line-height: 19.2px;
+text-align: left;
+
+
+}
+.texts{
+    font-family: FiraGO;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: left;
+    color: #808A93;
+
+}
+.iconsdiv{
+    margin-bottom: 15px;
+}
+.p-tag{
+    width: 503px;
+    height: 78px;
+    gap: 20px;
+    opacity: 0px;
+    
+font-family: FiraGO;
+font-size: 16px;
+font-weight: 400;
+line-height: 26px;
+text-align: left;
+color: #808A93;
+margin-top: 20px;
+margin-bottom: 40px;
+
+
+}
+.image-style{
+    width: 72px;
+height: 72px;
+top: 24px;
+left: 20px;
+gap: 0px;
+border-radius: 100px ;
+opacity: 0px;
+
+}
+.card-text1{
+    font-family: FiraGO;
+font-size: 16px;
+font-weight: 400;
+line-height: 19.2px;
+text-align: left;
+color:  #021526;
+
+}
+.card-text2{
+    font-family: FiraGO;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #676E76;
+
+}
+.icons44{
+    color :#808A93;
+
+}
+.icon-texts{
+    font-family: FiraGO;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.8px;
+text-align: left;
+color:#808A93;
+
+}
+:host ::ng-deep .btn-outline-primary{
+    margin-top: 30px;
+    width: 131px;
+height: 34px;
+border-radius: 8px ;
+border: 1px solid #676E76;
+font-family: FiraGO;
+font-size: 12px;
+font-weight: 500;
+line-height: 14.4px;
+text-align: center;
+color: #676E76;
+}

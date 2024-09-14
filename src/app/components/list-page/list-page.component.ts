@@ -22,7 +22,10 @@ export class ListPageComponent implements OnInit {
   showAgentModal: boolean = false;
 
   agentAdded: boolean = false;
+  fileName: string = '';
+  imageUrl: string | ArrayBuffer | null = null;
 
+  
   constructor(
     private formgroupService: FormGroupService,
     private regionServices: RegionServiceService,
@@ -92,4 +95,21 @@ export class ListPageComponent implements OnInit {
   openAgentModal() {
     this.agentAdded = true; 
   }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      console.log('File size:', input.files[0].size); 
+      this.fileName = input.files[0].name;
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      console.log('No file selected');
+    }
+  }
+  
+  
 }

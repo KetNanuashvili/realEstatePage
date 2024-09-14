@@ -82,6 +82,7 @@ resize: none;
     position: relative;
     cursor: pointer;
     left: -10px;
+  display: inline-block;
   }
 
   .upload-box input {
@@ -149,6 +150,44 @@ text-align: left;
 color: #021526;
 
   }
-
-
+ 
+ 
   
+  .uploaded-image {
+      object-fit: cover; 
+    opacity: 1 !important; 
+    width: 92px;
+height: 82px;
+gap: 0px;
+border-radius: 4px ;
+opacity: 0px;
+
+  }
+  
+  .upload-box2 {
+    padding: 24px 14px 2px 24px;
+  }
+  .icon-image{
+    width: 24px;
+height: 24px;
+
+gap: 0px;
+border: 1px ;
+opacity: 0px;
+
+  }
+  .uppload-icon-style{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: relative;
+    left: 401px;
+    bottom: 18px;
+    opacity: 10;
+    background-color: rgb(241, 233, 233);
+  }
+  :host ::ng-deep .bi-trash3{
+    margin-bottom: 4px;
+    margin-left: 1.5px;
+  }

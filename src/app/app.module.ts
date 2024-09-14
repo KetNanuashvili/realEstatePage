@@ -17,6 +17,7 @@ import { RealEstateComponent } from './components/real-estate/real-estate.compon
 import { RealEstatesService } from './services/real-estates.service';
 import { SityService } from './services/sity.service';
 import { AgentPageComponent } from './components/agent-page/agent-page.component';
+import { AgentModalComponent } from './components/agent-modal/agent-modal.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AgentPageComponent } from './components/agent-page/agent-page.component
     ListPageComponent,
     HeaderComponent,
     RealEstateComponent,
-    AgentPageComponent
+    AgentPageComponent,
+    AgentModalComponent
 
     
   ],
@@ -39,7 +41,8 @@ import { AgentPageComponent } from './components/agent-page/agent-page.component
     AppRoutingModule,
     HttpClientModule ,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [RegionServiceService, RealEstatesService,SityService ],
   bootstrap: [AppComponent]

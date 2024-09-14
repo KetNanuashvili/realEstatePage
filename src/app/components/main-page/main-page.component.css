@@ -87,3 +87,12 @@ line-height: 16.8px;
 text-align: center;
 
 }
+
+.blur-background {
+    filter: blur(10px); 
+    transition: filter 0.3s ease;
+  
+  }
+  
+
+  

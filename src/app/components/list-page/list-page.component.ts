@@ -18,6 +18,11 @@ export class ListPageComponent implements OnInit {
   data: any[] = [];
   data2: any[] = [];
 
+  
+  showAgentModal: boolean = false;
+
+  agentAdded: boolean = false;
+
   constructor(
     private formgroupService: FormGroupService,
     private regionServices: RegionServiceService,
@@ -77,5 +82,14 @@ export class ListPageComponent implements OnInit {
     } else {
       console.error('Form is invalid');
     }
+  }
+
+
+  onAlertClosed() {
+    this.agentAdded = false;
+  }
+
+  openAgentModal() {
+    this.agentAdded = true; 
   }
 }

@@ -1,0 +1,134 @@
+.detinationForm{
+    margin-top: 50px;
+    width: 799px;
+    height:190px;
+
+    display: grid;
+    gap: 10px;
+    grid-template-columns:  auto auto;
+
+
+
+}
+:host ::ng-deep .form-check-input:checked {
+    background-color:  #021526;
+    border-color: #021526;
+}
+:host ::ng-deep .form-check-label {
+    font-family: FiraGO;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    
+}
+.destination-input{
+    
+    width: 384px;
+height:42px;
+border-radius: 6px ;
+border: 1px solid #808A93;
+}
+
+
+.upload-box {
+    width: 788px;
+    border: 2px dashed #d3d3d3;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    left: -10px;
+  }
+
+  .upload-box input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    height: 120px;
+  }
+
+  .upload-box::before {
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: #d3d3d3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  :host ::ng-deep  .btn-primary{
+    border: 1px solid #F93B1D;
+    width: 103px;
+height: 47px;
+padding: 10px 16px 10px 16px;
+gap: 2px;
+border-radius: 10px ;
+color:  #F93B1D;
+font-family: FiraGO;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.2px;
+text-align: center;
+background-color: white;
+margin-right: 16px;
+  }
+  
+
+  :host ::ng-deep .btn-secondary{
+    width:187px;
+height: 47px;
+padding: 10px 16px 10px 16px;
+gap: 2px;
+border-radius: 10px;
+opacity: 0px;
+background-color: #F93B1D;
+font-family: FiraGO;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.2px;
+text-align: center;
+color: #FFFFFF;
+
+  }
+  label{
+    font-family: FiraGO;
+font-size: 14px;
+font-weight: 500;
+line-height: 16.8px;
+text-align: left;
+color: #021526;
+
+  }
+  .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* Higher than background */
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

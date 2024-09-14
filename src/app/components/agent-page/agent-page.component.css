@@ -37,8 +37,7 @@ border: 14px, 14px, 0px, 0px;
     padding: 30px 0px 0px 0px;
     gap: 40px;
     opacity: 0px;
-
-    
+    margin-right: 150px;
 }
 .card-titles{
     font-family: FiraGO;
@@ -142,4 +141,18 @@ font-weight: 500;
 line-height: 14.4px;
 text-align: center;
 color: #676E76;
+}
+
+.bottom-card{
+    width: 1591px;
+    margin-top: 70px;
+}
+.flat-style{
+    font-family: FiraGO;
+font-size: 32px;
+font-weight: 500;
+line-height: 38.4px;
+text-align: left;
+color: #021526;
+margin-bottom: 50px;
 }

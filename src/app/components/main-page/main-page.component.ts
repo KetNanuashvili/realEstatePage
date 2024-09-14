@@ -18,6 +18,9 @@ export class MainPageComponent {
   selectRoom: boolean= false;
   roomBackground: string= 'white'
 
+  showAgentModal: boolean = false;
+
+  agentAdded: boolean = false;
   constructor(){
 
   }
@@ -42,5 +45,13 @@ export class MainPageComponent {
   selectRoomFunc(){
     this.selectRoom= !this.selectRoom;
     this.roomBackground = this.selectRoom ? '#e9ecef' : 'white';
+  }
+
+  onAlertClosed() {
+    this.agentAdded = false;
+  }
+
+  openAgentModal() {
+    this.agentAdded = true; 
   }
 }

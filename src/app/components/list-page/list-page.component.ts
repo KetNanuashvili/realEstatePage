@@ -5,6 +5,7 @@ import { RegionServiceService } from '../../services/region-service.service';
 import { SityService } from '../../services/sity.service';
 import { BackandService } from '../../services/backand.service';
 import { RealEstatesService } from '../../services/real-estates.service';
+import { AgentsService } from '../../services/agents.service';
 
 @Component({
   selector: 'app-list-page',
@@ -18,6 +19,7 @@ export class ListPageComponent implements OnInit {
   data: any[] = [];
   data2: any[] = [];
 
+  agentsData: any[] = [];
   
   showAgentModal: boolean = false;
 
@@ -25,13 +27,15 @@ export class ListPageComponent implements OnInit {
   fileName: string = '';
   imageUrl: string | ArrayBuffer | null = null;
 
-  
+  isBlurred: boolean = false; // Track if the background should be blurred
+
   constructor(
     private formgroupService: FormGroupService,
     private regionServices: RegionServiceService,
     private sityService: SityService,
     private backendService: BackandService,
-    private realEstatesService:RealEstatesService
+    private realEstatesService:RealEstatesService,
+    private agentsService: AgentsService,
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +63,24 @@ export class ListPageComponent implements OnInit {
       }
     );
 
+    this.agentsService.getData().subscribe(
+      agents => {
+        this.agentsData = agents; // Store agents data
+        console.log('Agents data:', this.agentsData); // Display agents data
+        
+      },
+      error => {
+        console.error('Error fetching agents data:', error);
+        if (error.status === 0) {
+          console.error('Network issue or CORS issue.');
+        } else if (error.status >= 400 && error.status < 500) {
+          console.error('Client-side error:', error.message);
+        } else if (error.status >= 500) {
+          console.error('Server-side error:', error.message);
+        }
+      }
+    );
+    
     
 
   }
@@ -88,13 +110,13 @@ export class ListPageComponent implements OnInit {
   }
 
 
-  onAlertClosed() {
-    this.agentAdded = false;
-  }
+  // onAlertClosed() {
+  //   this.agentAdded = false;
+  // }
 
-  openAgentModal() {
-    this.agentAdded = true; 
-  }
+  // openAgentModal() {
+  //   this.agentAdded = true; 
+  // }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -110,6 +132,26 @@ export class ListPageComponent implements OnInit {
       console.log('No file selected');
     }
   }
+  onAgentChange(event: Event): void {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+
+    if (selectedValue === 'add') {
+      this.addAgent();
+    } else {
+      this.showAgentModal = false; // Hide modal if another agent is selected
+      this.isBlurred = false; // Remove blur
+    }
+  }
+
+  addAgent(): void {
+    this.showAgentModal = true; // Show the modal
+    this.isBlurred = true; // Apply blur
+  }
+
+  closeModal(): void {
+    this.showAgentModal = false; // Hide the modal
+    this.isBlurred = false; // Remove blur
+  }
   
-  
+
 }

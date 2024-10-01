@@ -18,6 +18,7 @@ import { RealEstatesService } from './services/real-estates.service';
 import { SityService } from './services/sity.service';
 import { AgentPageComponent } from './components/agent-page/agent-page.component';
 import { AgentModalComponent } from './components/agent-modal/agent-modal.component';
+import { AgentsService } from './services/agents.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { AgentModalComponent } from './components/agent-modal/agent-modal.compon
     AppRoutingModule,
     
   ],
-  providers: [RegionServiceService, RealEstatesService,SityService ],
+  providers: [RegionServiceService, RealEstatesService,SityService, AgentsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div [ngClass]="{'blur-background': agentAdded}">
+<div [ngClass]="{'blur-background': isBlurred }">
   <header class="header-style">
     <img src="assets/headerimage/LOGO-02 3.png" alt="">
  </header>
@@ -307,18 +307,26 @@
               <h5 style="margin-bottom:20px">აგენტი *</h5>
               <div>
                 
-                <select  [ngClass]="{
+                <select
+                [ngClass]="{
                   'border-danger': listForm.get('agent')?.invalid && listForm.get('agent')?.touched,
                   'border-success': listForm.get('agent')?.valid && listForm.get('agent')?.touched
-                }" class="form-select destination-input" formControlName="agent"  aria-label="Default select example">
-                  <option value="1" (click)="openAgentModal()" > + დაამატე აგენტი</option>
-                  <option value="2" ></option>
-                  <option value="3">Three</option>
-                </select>
+                }"
+                class="form-select destination-input"
+                formControlName="agent"
+                aria-label="Default select example"
+                (change)="onAgentChange($event)"
+              >
+                <option value="">აირჩიეთ აგენტი</option>
+                <option value="add">+ დაამატე აგენტი</option>
+                <option *ngFor="let item of agentsData" [value]="item.id">
+                  {{ item.name + ' ' + item.surname }}
+                </option>
+              </select>
             
               <!-- ერორის შემთხვევაში -->
               <div *ngIf="listForm.get('agent')?.invalid && listForm.get('agent')?.touched">
-                <small style="color: red" *ngIf="listForm.get('price')?.errors?.required"> </small>
+                <small style="color: red" *ngIf="listForm.get('agent')?.errors?.required"> </small>
               </div>
             
               <!-- წარმატების შემთხვევაში -->
@@ -331,8 +339,8 @@
             </div>
           </div>  
           <div style=" display: flex; justify-content: right;" >       
-            <div style="margin-top:100px; padding-bottom: 60px; ">
-            <button type="button" class="btn btn-primary declare-button" routerLink="/home">გაუქმება</button>
+            <div style="margin-top:100px; padding-bottom: 60px; " >
+            <button type="button" class="btn btn-primary declare-button" routerLink="/home" >გაუქმება</button>
             <button type="submit" class="btn btn-secondary add-button"     >დაამატე ლისტინგი</button>
           </div>
 
@@ -346,5 +354,4 @@
 
 </div>
 
-<app-agent-modal    *ngIf="agentAdded" 
-(alertClosed)="onAlertClosed()"></app-agent-modal>
+<app-agent-modal *ngIf="showAgentModal"></app-agent-modal>

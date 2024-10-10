@@ -1,32 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RealEstatesService } from '../../services/real-estates.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agent-page',
   templateUrl: './agent-page.component.html',
-  styleUrl: './agent-page.component.css'
+  styleUrls: ['./agent-page.component.css']
 })
-export class AgentPageComponent {
-  result: any;
-  data: any[] = [];
+export class AgentPageComponent implements OnInit {
+  data: any;
 
-  constructor(private realEstateService: RealEstatesService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private realEstateService: RealEstatesService
+  ) {}
 
   ngOnInit(): void {
-    this.realEstateService.getRealEstates().subscribe(
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.realEstateService.getRealEstateById(id).subscribe(
       data => {
-        this.result = data; 
-        this.data = data.map((item: any) => {
-          console.log(item);
-          return item; 
+        this.data = data;
+        console.log(data); 
+        console.log(this.data.id);
         
-         
-        });
-       
-      
       },
       error => {
-        console.error('Error fetching data', error);
+        console.error('Error fetching real estate data by ID', error);
       }
     );
   }

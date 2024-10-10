@@ -1,16 +1,19 @@
 .region-form{
+  position: relative;
     width: 382px;
     height: 372px;
-top: 234px;
+top: -1100px;
 padding: 24px 0px 0px 0px;
 gap: 32px;
 border-radius: 10px;
 opacity: 10px;
+z-index: 100;
 border: 1px solid #DBDBDB;
 display: flex;
 justify-content: center;
 margin-top:-38px;
 margin-left: 330px;
+background-color: white;
 }
 .region-flex{
     width: 325px;

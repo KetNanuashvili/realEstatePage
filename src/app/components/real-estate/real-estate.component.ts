@@ -15,15 +15,8 @@ export class RealEstateComponent implements OnInit {
   ngOnInit(): void {
     this.realEstateService.getRealEstates().subscribe(
       data => {
-        this.result = data; 
-        this.data = data.map((item: any) => {
-          console.log(item);
-          return item; 
-        
-         
-        });
-       
-      
+        this.result = data;
+        this.data = data.map((item: any) => item);
       },
       error => {
         console.error('Error fetching data', error);

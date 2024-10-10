@@ -1,13 +1,15 @@
 .region-form{
-    width: 731px;
-    height: 284px;
-    padding: 24px;
-    gap: 32px;
-    border-radius: 10px ;
-    opacity: 10px;
-    border: 1px solid #DBDBDB;
-   margin-left: 163px;
-   margin-top: 10px;
+  position: relative;
+  width: 731px;
+  height: 284px;
+  padding: 24px;
+  gap: 32px;
+  border-radius: 10px;
+  opacity: 99;
+  border: 1px solid #DBDBDB;
+  margin-left: 163px;
+  top: -1135px;
+  background-color: white;
 }
 h1{
     font-family: FiraGO;

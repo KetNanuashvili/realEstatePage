@@ -1,4 +1,5 @@
 .region-form{
+  position: relative;
 width: 282px;
 height: 198px;
 padding: 24px 0px 0px 0px;
@@ -9,7 +10,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 margin-left: 710px;
-margin-top: -40px;
+top: -1132px;
+
+background-color: white;
+
 }
 :host ::ng-deep .form-control{
     width: 41px;
